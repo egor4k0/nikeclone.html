@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
       var content = document.getElementById("content");
       loader.style.display = "none";
       content.classList.remove("hidden");
-  }, 2000); // 3 секунді затримки 
+  }, 2000); // 2секунді затримки 
 });
 window.addEventListener('scroll', function() {
   var menushka = document.querySelector('.menushka');
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-/* этот код помечает картинки, для удобства разработки */
+
     let i = 1;
     for(let li of carousel.querySelectorAll('li')) {
       li.style.position = 'relative';
@@ -44,27 +44,26 @@ document.addEventListener("DOMContentLoaded", function() {
       i++;
     }
 
-    /* конфигурация */
-    let width = 130; // ширина картинки
-    let count = 4; // видимое количество изображений
-
+   
+    let width = 130; 
+    let count = 4; 
     let list = carousel.querySelector('ul');
     let listElems = carousel.querySelectorAll('li');
 
-    let position = 2; // положение ленты прокрутки
+    let position = 2; 
 
     carousel.querySelector('.prev').onclick = function() {
-      // сдвиг влево
+     
       position += width * count;
-      // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
+      
       position = Math.min(position, 0)
       list.style.marginLeft = position + 'px';
     };
 
     carousel.querySelector('.next').onclick = function() {
-      // сдвиг вправо
+      
       position -= width * count;
-      // последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
+     
       position = Math.max(position, -width * (listElems.length - 1));
       list.style.marginLeft = position + 'px';
     };
